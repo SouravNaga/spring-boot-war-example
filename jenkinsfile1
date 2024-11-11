@@ -1,0 +1,41 @@
+pipeline{
+    agent any
+tools {
+        maven 'Maven' 
+    }
+    stages{
+          stage("Test"){
+            steps{
+                bat 'mvn test'
+                echo "========executing A========"
+            }
+        }
+        stage("Build"){
+            steps{
+                bat 'mvn package'
+                echo "========executing A========"
+            }
+        }
+        stage("Deploy in test"){
+            steps{
+                echo "========executing A========"
+            }
+        }
+        stage("Deploy in prod"){
+            steps{
+                echo "========executing A========"
+            }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
