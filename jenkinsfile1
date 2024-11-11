@@ -24,6 +24,7 @@ tools {
         }
         stage("Deploy in prod"){
             steps{
+ deploy adapters: [tomcat9(credentialsId: 'tomcatserverdetails2', path: '', url: 'http://192.168.1.31:8080')], contextPath: '/hello', war: '**/*.war'
                 echo "========executing A========"
             }
         }
